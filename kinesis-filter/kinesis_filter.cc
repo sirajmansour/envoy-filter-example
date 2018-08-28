@@ -16,7 +16,7 @@ KinesisFilter::~KinesisFilter() {}
 
 void KinesisFilter::onDestroy() {}
 
-FilterHeadersStatus KinesisFilter::decodeHeaders(HeaderMap& headers, bool) {
+FilterHeadersStatus KinesisFilter::decodeHeaders(HeaderMap&, bool) {
   return FilterHeadersStatus::Continue;
 }
 
