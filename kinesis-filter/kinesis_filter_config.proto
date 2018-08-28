@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package kinesis;
+
+import "validate/validate.proto";
+
+message Config {
+    string region = 1 [(validate.rules).string.min_bytes = 1];
+    string access_key_id = 2 [(validate.rules).string.min_bytes = 1];
+    string access_key_secret = 3 [(validate.rules).string.min_bytes = 1];
+}
