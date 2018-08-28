@@ -11,7 +11,7 @@ namespace Http {
 
 class KinesisFilterConfig {
 public:
-  KinesisFilterConfig(kinesis::Config& config);
+  KinesisFilterConfig(const kinesis::Config& config);
 
   const std::string& awsRegion() const { return aws_region_; }
   const std::string& awsAccessKeyId() const { return aws_access_key_id_; }
