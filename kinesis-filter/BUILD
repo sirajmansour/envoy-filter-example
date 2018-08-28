@@ -5,8 +5,9 @@ load(
     "envoy_cc_binary",
     "envoy_cc_library",
     "envoy_cc_test",
-    "envoy_proto_library",
 )
+
+load("@envoy_api//bazel:api_build_system.bzl", "api_proto_library")
 
 envoy_cc_binary(
     name = "envoy",
@@ -17,7 +18,7 @@ envoy_cc_binary(
     ],
 )
 
-envoy_proto_library(
+api_proto_library(
     name = "kinesis_filter_config_proto",
     srcs = ["kinesis_filter_config.proto"]
 )
@@ -28,7 +29,7 @@ envoy_cc_library(
     hdrs = ["kinesis_filter.h"],
     repository = "@envoy",
     deps = [
-        "//:kinesis_filter_config_proto",
+        ":kinesis_filter_config_proto_cc",
         "@envoy//source/exe:envoy_common_lib",
     ],
 )
@@ -38,7 +39,6 @@ envoy_cc_library(
     srcs = ["kinesis_filter_config.cc"],
     repository = "@envoy",
     deps = [
-        "//:kinesis_filter_config_proto",
         ":kinesis_filter_lib",
         "@envoy//include/envoy/server:filter_config_interface",
     ],
