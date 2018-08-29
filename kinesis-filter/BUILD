@@ -30,7 +30,7 @@ envoy_cc_library(
     repository = "@envoy",
     deps = [
         ":kinesis_filter_config_proto_cc",
-        "//thrid_party/aws_kinesis:aws_kinesis_lib",
+        "//third_party/aws_kinesis:aws_kinesis_lib",
         "@envoy//source/exe:envoy_common_lib",
     ],
 )
