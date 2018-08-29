@@ -21,7 +21,7 @@ envoy_cc_library(
     hdrs = ["v141/include/**.h"],
     repository = "@envoy",
     deps = [
-        "//third_party/aws_core:aws_core_lib"
+        "//third_party/aws_core:aws_core_lib",
         ":aws_kinesis_redist",
         ":aws_kinesis_static"
     ],
