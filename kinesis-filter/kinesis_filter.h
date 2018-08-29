@@ -5,6 +5,8 @@
 #include "envoy/server/filter_config.h"
 
 #include "kinesis-filter/kinesis_filter_config.pb.h"
+#include <aws/core/Aws.h>
+#include <aws/kinesis/KinesisClient.h>
 
 namespace Envoy {
 namespace Http {
@@ -42,6 +44,7 @@ public:
 private:
   const KinesisFilterConfigSharedPtr config_;
   StreamDecoderFilterCallbacks* decoder_callbacks_;
+  const std::shared_ptr<KinesisClient> kinesis_client_;
 };
 
 } // namespace Http
