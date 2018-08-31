@@ -21,6 +21,9 @@ cc_import(
 envoy_cc_library(
     name = "aws_core_lib",
     hdrs = glob(["v141/include/**/*.h"]),
+    includes = [
+        "v141/include/",
+    ],
     repository = "@envoy",
     deps = [
         ":aws_core_redist",
