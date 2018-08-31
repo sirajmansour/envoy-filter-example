@@ -1,5 +1,11 @@
 workspace(name = "envoy_filter_example")
 
+git_repository(
+    name = "tensorflow",
+    remote = "https://github.com/tensorflow/tensorflow.git",
+    tag = "v1.10.1",
+)
+
 local_repository(
     name = "envoy",
     path = "envoy",
