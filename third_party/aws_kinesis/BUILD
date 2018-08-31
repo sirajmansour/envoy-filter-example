@@ -8,27 +8,28 @@ load(
 
 envoy_package()
 
-# cc_import(
-#   name = "aws_kinesis_redist",
-#   shared_library = "v141/aws-cpp-sdk-kinesis.dll",
-# )
-
 cc_import(
-  name = "aws_kinesis_lib",
-  hdrs = glob(["v141/include/**/*.h"]),
-  static_library = "v141/aws-cpp-sdk-kinesis.lib",
+  name = "aws_kinesis_redist",
   shared_library = "v141/aws-cpp-sdk-kinesis.dll",
 )
 
-# cc_library(
-#     name = "aws_kinesis_lib",
-#     hdrs = glob(["v141/include/**/*.h"]),
-#     includes = [
-#         "v141/include/",
-#     ],
-#     deps = [
-#         "//third_party/aws_core:aws_core_lib",
-#         ":aws_kinesis"
-#     ],
-#     alwayslink = 1
-# )
+cc_import(
+  name = "aws_kinesis_static",
+  static_library = "v141/aws-cpp-sdk-kinesis.lib",
+)
+
+cc_library(
+    name = "aws_kinesis_lib",
+    hdrs = glob(["v141/include/**/*.h"]),
+    includes = [
+        "v141/include/",
+    ],
+    deps = [
+        "//third_party/aws_core:aws_core_lib",
+        ":aws_kinesis_redist",
+        ":aws_kinesis_static"
+    ],
+    defines  = [
+        "USE_IMPORT_EXPORT"
+    ]
+)
