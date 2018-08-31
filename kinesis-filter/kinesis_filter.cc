@@ -12,7 +12,7 @@ KinesisFilterConfig::KinesisFilterConfig(const kinesis::Config& proto_config)
       aws_access_key_secret_(proto_config.access_key_secret()) {}
 
 KinesisFilter::KinesisFilter(KinesisFilterConfigSharedPtr config) : config_(config) {
-  kinesis_client_ = Aws::MakeShared<KinesisClient>(ALLOCATION_TAG,AWSCredentials(awsAccessKeyId(),awsAccessKeySecret()))
+  kinesis_client_ = Aws::MakeShared<Aws::Kinesis::KinesisClient>(ALLOCATION_TAG,AWSCredentials(awsAccessKeyId(),awsAccessKeySecret()))
 }
 
 KinesisFilter::~KinesisFilter() {}

@@ -44,7 +44,7 @@ public:
 private:
   const KinesisFilterConfigSharedPtr config_;
   StreamDecoderFilterCallbacks* decoder_callbacks_;
-  const std::shared_ptr<KinesisClient> kinesis_client_;
+  const std::shared_ptr<Aws::Kinesis::KinesisClient> kinesis_client_;
 };
 
 } // namespace Http
