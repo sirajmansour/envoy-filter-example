@@ -24,7 +24,6 @@ cc_library(
     includes = [
         "v141/include/",
     ],
-    repository = "@envoy",
     deps = [
         ":aws_core_redist",
         ":aws_core_static"
