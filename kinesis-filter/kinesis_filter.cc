@@ -3,6 +3,9 @@
 #include "kinesis_filter.h"
 #include "envoy/server/filter_config.h"
 #include <aws/core/Aws.h>
+#include <aws/kinesis/KinesisClient.h>
+#include <aws/core/auth/AWSCredentialsProvider.h>
+#include <aws/core/external/tinyxml2/tinyxml2.h>
 
 namespace Envoy {
 namespace Http {
