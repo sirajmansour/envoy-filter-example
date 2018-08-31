@@ -20,7 +20,7 @@ cc_import(
 
 envoy_cc_library(
     name = "aws_kinesis_lib",
-    hdrs = ["v141/include/**.h"],
+    hdrs = glob(["v141/include/**/*.h"]),
     repository = "@envoy",
     deps = [
         "//third_party/aws_core:aws_core_lib",
