@@ -8,14 +8,16 @@ load(
 
 envoy_package()
 
-cc_import(
-  name = "aws_core_redist",
-  shared_library = "v141/aws-cpp-sdk-core.dll",
-)
+# cc_import(
+#   name = "aws_core_redist",
+#   shared_library = "v141/aws-cpp-sdk-core.dll",
+# )
 
 cc_import(
-  name = "aws_core_static",
+  name = "aws_core",
   static_library = "v141/aws-cpp-sdk-core.lib",
+  shared_library = "v141/aws-cpp-sdk-core.dll",
+  alwayslink = 1
 )
 
 cc_library(
@@ -25,7 +27,7 @@ cc_library(
         "v141/include/",
     ],
     deps = [
-        ":aws_core_redist",
-        ":aws_core_static"
+        ":aws_core"
     ],
+    alwayslink = 1
 )
