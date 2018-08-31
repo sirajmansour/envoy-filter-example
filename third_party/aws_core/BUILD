@@ -18,7 +18,7 @@ cc_import(
   static_library = "v141/aws-cpp-sdk-core.lib",
 )
 
-envoy_cc_library(
+cc_library(
     name = "aws_core_lib",
     hdrs = glob(["v141/include/**/*.h"]),
     includes = [
